@@ -1,4 +1,6 @@
 import React from "react";
+import Users from "./Users";
+import RecentOrders from "./RecentOrders";
 
 const Dashboard = () => {
   return (
@@ -57,8 +59,9 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-
       </div>
+      <Users />
+      <RecentOrders />
     </main>
 
   );

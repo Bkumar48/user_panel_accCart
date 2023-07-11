@@ -1,7 +1,7 @@
 import './App.css';
-import Dashboard from './components/Dashboard';
-import Users from './components/Users';
+import Dashboard from './components/DashBoard/Dashboard';
 import Sidebar from './components/global/Sidebar';
+import RightSection from './components/DashBoard/RightSection';
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
       <div className='container'>
       <Sidebar/>
       <Dashboard/>
-      <Users/>
+      <RightSection/>
       </div>
     </div>
   );
