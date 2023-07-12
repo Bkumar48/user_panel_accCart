@@ -12,8 +12,8 @@ const Dashboard = () => {
         <div className="sales">
           <div className="status">
             <div className="info">
-              <h3>Total Sales</h3>
-              <h1>$65,024</h1>
+              <h3>Orders</h3>
+              <h1>65</h1>
             </div>
             <div className="progress">
               <svg>
@@ -29,7 +29,7 @@ const Dashboard = () => {
         <div className="visits">
           <div className="status">
             <div className="info">
-              <h3>Site Visit</h3>
+              <h3>Cart</h3>
               <h1>69</h1>
             </div>
             <div className="progress">
@@ -46,7 +46,7 @@ const Dashboard = () => {
         <div className="searches">
           <div className="status">
             <div className="info">
-              <h3>Searches</h3>
+              <h3>Tickets</h3>
               <h1>69</h1>
             </div>
             <div className="progress">
@@ -60,7 +60,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      <Users />
+      {/* <Users /> */}
       <RecentOrders />
     </main>
 
