@@ -29,7 +29,7 @@ const OrderList = () => {
                                 <td className={order.paymentStatus === 'Refunded' ? 'danger' : order.paymentStatus === 'Due' ? 'warning' : 'primary'}>{order.paymentStatus}</td>
                                 <td>{order.date}</td>
                                 <td>{order.status}</td>
-                                <td><Link to='/invioce'>View</Link></td>
+                                <td><Link to='/invoice'>View</Link></td>
                             </tr>
                         ))}
 

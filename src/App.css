@@ -627,31 +627,206 @@ main .invoice {
     background-color: var(--color-white);
     width: 100%;
     padding: var(--card-padding);
-    text-align: center;
     box-shadow: var(--box-shadow);
     border-radius: var(--card-border-radius);
     transition: all 0.3s ease;
 }
 
-main .invoice-header{
+main .invoice-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1.3rem;
 }
 
-main .invoice .invoice-head{
+main .invoice-header button {
+    background-color: var(--color-primary);
+    color: var(--color-dark);
+    padding: 0.8rem 1rem;
+    border-radius: var(--border-radius-1);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+main .invoice .invoice-head {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1.3rem;
+    background-color: var(--color-light);
+    padding: 1rem;
+    border-radius: var(--border-radius-1);
 }
 
-main .invoice .invoice-head img{
+main .invoice .invoice-head img {
     width: 20%;
     height: auto;
 }
+
+main .invoice .invoice-body table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+main .invoice .invoice-body table tr td {
+    padding: 1rem 0;
+}
+
+main .invoice .invoice-table {
+    margin-top: 2rem;
+}
+
+main .invoice .invoice-table table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+main .invoice .invoice-table table tr:nth-child(1) {
+    border-top: 1px solid var(--color-light);
+    border-bottom: 1px solid var(--color-light);
+
+}
+
+main .invoice .invoice-table table tr:nth-child(1) th {
+    padding: 1rem 0;
+    font-weight: 600;
+    color: var(--color-dark-variant);
+}
+
+
+main .invoice .invoice-table table tr:nth-child(1) th:first-child {
+    text-align: left;
+    padding-left: 1rem;
+}
+
+main .invoice .invoice-table table tr:nth-child(1) th:last-child {
+    text-align: right;
+    padding-right: 1rem;
+}
+
+main .invoice .invoice-table table tr td:first-child {
+    text-align: left;
+    padding-left: 1rem;
+}
+
+main .invoice .invoice-table table tr td:last-child {
+    text-align: right;
+    padding-right: 1rem;
+}
+
+
+main .invoice .invoice-table table tr {
+    border-bottom: 1px solid var(--color-light);
+}
+
+main .invoice .invoice-table table tr:last-child {
+    border-bottom: none;
+}
+
+main .invoice .invoice-table table tr td {
+    padding: 1rem 0;
+}
+
+main .invoice .invoice-total {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 1.3rem;
+}
+
+main .invoice .invoice-total table {
+    width: 50%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+main .invoice .invoice-total table tr td {
+    padding: 1rem 0;
+}
+
+main .invoice .invoice-total table tr td:first-child {
+    text-align: left;
+    padding-left: 1rem;
+}
+
+main .invoice .invoice-total table tr td:last-child {
+    text-align: right;
+    padding-right: 1rem;
+}
+
+
+main .invoice .invoice-total table tr td:nth-child(1) {
+    font-weight: 600;
+    color: var(--color-dark-variant);
+}
+
+main .invoice .invoice-footer {
+    margin-top: 1.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 /* invoice section ends */
+
+/* Password change section starts */
+
+main .passchange{
+    background-color: var(--color-white);
+    width: 100%;
+    padding: var(--card-padding);
+    box-shadow: var(--box-shadow);
+    border-radius: var(--card-border-radius);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+main .passchange .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+main .passchange .form-group:nth-child(1){
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+main .passchange .form-group:nth-child(1) .firstname,
+main .passchange .form-group:nth-child(1) .lastname{
+    width: 48%;
+}
+
+main .passchange .form-group:nth-child(1) input{
+    width: 100%;
+}
+
+main .passchange .form-group label {
+    text-align: left;
+    margin-top: 1rem;
+}
+
+main .passchange .form-group input {
+    padding: 0.8rem 1rem;
+    border-radius: var(--border-radius-1);
+    border: 1px solid var(--color-light);
+    color: var(--color-dark-variant);
+}
+
+main .passchange form button {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 0.8rem 1rem;
+    border-radius: var(--border-radius-1);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+/* Password change section ends */
 
 
 .right-section {

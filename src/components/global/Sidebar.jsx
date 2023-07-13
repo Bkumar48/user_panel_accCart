@@ -28,7 +28,7 @@ const Sidebar = () => {
           <span className="material-icons-sharp">language</span>
           <h3>Visit Site</h3>
         </Link>
-        <Link to="/orders" className={location.pathname === '/orders' ? 'active' : ''}>
+        <Link to="/orders" className={location.pathname === '/orders' ? 'active' : location.pathname==='/invoice' ? 'active' : ''}>
           <span className="material-icons-sharp">paid</span>
           <h3>Orders </h3>
         </Link>
@@ -37,9 +37,9 @@ const Sidebar = () => {
           <h3>Tickets</h3>
           <span className="message-count">27</span>
         </Link>
-        <Link to="#">
+        <Link to="/settings" className={location.pathname === '/settings' ? 'active' : ''}>
           <span className="material-icons-sharp">settings</span>
-          <h3>settings</h3>
+          <h3>Settings</h3>
         </Link>
         <Link to="#">
           <span className="material-icons-sharp">logout</span>

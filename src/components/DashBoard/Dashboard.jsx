@@ -1,5 +1,4 @@
 import React from "react";
-import Users from "./Users";
 import RecentOrders from "./RecentOrders";
 
 const Dashboard = () => {
