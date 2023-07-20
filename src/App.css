@@ -835,7 +835,7 @@ main .passchange form button {
 
 .right-section .nav {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     gap: 2rem;
 }
 

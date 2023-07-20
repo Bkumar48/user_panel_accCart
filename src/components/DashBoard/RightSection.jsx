@@ -1,9 +1,46 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import profile1 from '../assets/dashboard/profile-1.jpg'
 import logo from '../assets/sidebar/logo.png'
+import jwt_decode from "jwt-decode";
+import { Link, useLocation } from "react-router-dom";
+import axios from 'axios';
 const RightSection = () => {
   const [darkMode, setDarkMode] = React.useState(false);
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const location = useLocation();
 
+  const token = sessionStorage.getItem('token') || null;
+  const [decoded, setDecoded] = useState(null);
+
+  const getUser = async () => {
+    try {
+      setLoading(true);
+      const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/user/getUser/?userId=${decoded?.user_id}`, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+      setData(response.data.data);
+      setLoading(false);
+    } catch (error) {
+      setError(error);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    setDecoded(jwt_decode(token));
+  }, [token]);
+
+  useEffect(() => {
+    if (decoded) {
+      getUser();
+    }
+  }, [decoded]);
+
+  const { firstName, lastName } = data;
   return (
     <div className='right-section'>
       <div className="nav">
@@ -18,9 +55,9 @@ const RightSection = () => {
           </span>
         </button>
         <div className="dark-mode" onClick={() => {
-            document.body.classList.toggle('dark-mode-variables');
-            setDarkMode(!darkMode);
-          }}>
+          document.body.classList.toggle('dark-mode-variables');
+          setDarkMode(!darkMode);
+        }}>
           <span className={!darkMode ? 'material-icons-sharp active' : 'material-icons-sharp'} >
             light_mode
           </span>
@@ -30,7 +67,7 @@ const RightSection = () => {
         </div>
         <div className="profile">
           <div className="info">
-            <p>Hey, <b>Bittu</b></p>
+            <p>Hey, <b>{firstName}</b></p>
             <small className='text-muted'>User</small>
           </div>
           <div className="profile-photo">
@@ -41,59 +78,59 @@ const RightSection = () => {
       <div className='user-profile'>
         <div className="logo">
           <img src={profile1} alt='profile' />
-          <h2>Bittu Kumar</h2>
+          <h2>{firstName + " " + lastName}</h2>
           <p> Fullstack Developer</p>
         </div>
       </div>
-      <div class="reminders">
-        <div class="header">
+      <div className="reminders">
+        <div className="header">
           <h2>Reminders</h2>
-          <span class="material-icons-sharp">
+          <span className="material-icons-sharp">
             notifications_none
           </span>
         </div>
 
-        <div class="notification">
-          <div class="icon">
-            <span class="material-icons-sharp">
+        <div className="notification">
+          <div className="icon">
+            <span className="material-icons-sharp">
               volume_up
             </span>
           </div>
-          <div class="content">
-            <div class="info">
+          <div className="content">
+            <div className="info">
               <h3>Workshop</h3>
-              <small class="text_muted">
+              <small className="text_muted">
                 08:00 AM - 12:00 PM
               </small>
             </div>
-            <span class="material-icons-sharp">
+            <span className="material-icons-sharp">
               more_vert
             </span>
           </div>
         </div>
 
-        <div class="notification deactive">
-          <div class="icon">
-            <span class="material-icons-sharp">
+        <div className="notification deactive">
+          <div className="icon">
+            <span className="material-icons-sharp">
               edit
             </span>
           </div>
-          <div class="content">
-            <div class="info">
+          <div className="content">
+            <div className="info">
               <h3>Workshop</h3>
-              <small class="text_muted">
+              <small className="text_muted">
                 08:00 AM - 12:00 PM
               </small>
             </div>
-            <span class="material-icons-sharp">
+            <span className="material-icons-sharp">
               more_vert
             </span>
           </div>
         </div>
 
-        <div class="notification add-reminder">
+        <div className="notification add-reminder">
           <div>
-            <span class="material-icons-sharp">
+            <span className="material-icons-sharp">
               add
             </span>
             <h3>Add Reminder</h3>

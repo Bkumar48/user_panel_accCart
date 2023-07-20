@@ -1,7 +1,38 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import RecentOrders from "./RecentOrders";
+import axios from "axios";
 
 const Dashboard = () => {
+   const [cartCount, setCartCount] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const token = sessionStorage.getItem('token') || null;
+
+  const getCart = async () => {
+    try {
+      setLoading(true);
+      const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/cart/getCart`, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+      setCartCount(response.data.data.items.length);
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      setCartCount(0);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    // Fetch data again when the token changes
+    if (token) {
+      getCart();
+    }
+  }, [token]);
+  
+
+
   return (
 
     <main>
@@ -29,7 +60,7 @@ const Dashboard = () => {
           <div className="status">
             <div className="info">
               <h3>Cart</h3>
-              <h1>69</h1>
+              <h1>{cartCount !== null && cartCount }</h1>
             </div>
             <div className="progress">
               <svg>
