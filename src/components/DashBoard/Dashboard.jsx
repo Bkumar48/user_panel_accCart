@@ -1,11 +1,12 @@
 import React,{useEffect,useState} from "react";
 import RecentOrders from "./RecentOrders";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 const Dashboard = () => {
    const [cartCount, setCartCount] = useState([]);
   const [loading, setLoading] = useState(false);
-  const token = sessionStorage.getItem('token') || null;
+  const token = Cookies.get('token') || null;
 
   const getCart = async () => {
     try {

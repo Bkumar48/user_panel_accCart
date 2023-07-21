@@ -10,18 +10,20 @@ import Conversation from './components/Conversation';
 import Invoice from './components/Invoice';
 import Passchange from './components/Passchange';
 import { useEffect, useState } from 'react';
+import Cookies from 'js-cookie';
+import { Toaster } from 'react-hot-toast';
 
 const App = () => {
-  const urlParams = new URLSearchParams(window.location.search);
   const [token, setToken] = useState(null);
 
   useEffect(() => {
-    if (urlParams.has('token')) {
-      const token = urlParams.get('token');
-      sessionStorage.setItem('token', token);
-      setToken(token);
+    const tokenFromCookies = Cookies.get('token');
+    if (tokenFromCookies) {
+      // If token is found in cookies, set it in the state (or wherever you need it)
+      setToken(tokenFromCookies);
     }
-  }, []);
+
+  }, []); // The empty dependency array ensures this effect runs only once on component mount
 
   if (!token) {
     return null; // Render nothing until token is stored in sessionStorage
@@ -42,6 +44,7 @@ const App = () => {
             <Route path="/settings" element={<Passchange />} />
           </Routes>
           <RightSection />
+          <Toaster />
         </BrowserRouter>
       </div>
     </div>

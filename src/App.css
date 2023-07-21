@@ -29,6 +29,7 @@
     --color-dark-variant: #a3bdcc;
     --color-light: rgba(0, 0, 0, 0.4);
     --box-shadow: 0 2rem 3rem var(--color-light);
+    --color-input:transparent;
 }
 
 * {
@@ -93,6 +94,10 @@ b {
     color: var(--color-dark);
 }
 
+input{
+    background-color: var(--color-input);
+}
+
 .text-muted {
     color: var(--color-info-dark);
 }
@@ -115,7 +120,7 @@ b {
 
 .container {
     display: grid;
-    width: 96%;
+    width: 96%; 
     margin: 0 auto;
     gap: 1.8rem;
     grid-template-columns: 12rem auto 23rem;
@@ -788,21 +793,30 @@ main .passchange .form-group {
     flex-direction: column;
 }
 
-main .passchange .form-group:nth-child(1){
+main .passchange .details-form .form-group{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin-top: 1rem;
 }
 
-main .passchange .form-group:nth-child(1) .firstname,
-main .passchange .form-group:nth-child(1) .lastname{
+main .passchange .details-form .form-group input{
+    width: 100%;
+}
+
+main .passchange .details-form .form-group .firstname,
+main .passchange .details-form .form-group .lastname{
     width: 48%;
 }
 
-main .passchange .form-group:nth-child(1) input{
+/* main .passchange .form-group:nth-child(1) .firstname,
+main .passchange .form-group:nth-child(1) .lastname{
+    width: 48%;
+} */
+
+/* main .passchange .form-group:nth-child(1) input{
     width: 100%;
-}
+} */
 
 main .passchange .form-group label {
     text-align: left;

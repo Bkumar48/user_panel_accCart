@@ -1,8 +1,19 @@
 import React from "react";
 import logo from "../assets/sidebar/logo.png";
 import { Link, useLocation } from "react-router-dom";
+import Cookies from "js-cookie";
 const Sidebar = () => {
   const location = useLocation();
+  const handleLogout = () => {
+    try {
+      Cookies.remove("token");
+      setTimeout(() => {
+        window.location.href = "http://localhost:3000/";
+      }, 100);
+    } catch (error) {
+      console.error("Error during logout:", error);
+    }
+  };
   return (
     <aside>
       <div className="toggle">
@@ -24,11 +35,11 @@ const Sidebar = () => {
           <span className="material-icons-sharp ">dashboard</span>
           <h3>Dashboard</h3>
         </Link>
-        <Link to="http://localhost:3001/" >
+        <Link to="http://localhost:3000/" >
           <span className="material-icons-sharp">language</span>
           <h3>Visit Site</h3>
         </Link>
-        <Link to="/orders" className={location.pathname === '/orders' ? 'active' : location.pathname==='/invoice' ? 'active' : ''}>
+        <Link to="/orders" className={location.pathname === '/orders' ? 'active' : location.pathname === '/invoice' ? 'active' : ''}>
           <span className="material-icons-sharp">paid</span>
           <h3>Orders </h3>
         </Link>
@@ -41,7 +52,7 @@ const Sidebar = () => {
           <span className="material-icons-sharp">settings</span>
           <h3>Settings</h3>
         </Link>
-        <Link to="#">
+        <Link to="#" onClick={handleLogout}>
           <span className="material-icons-sharp">logout</span>
           <h3>Logout</h3>
         </Link>
