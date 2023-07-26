@@ -374,6 +374,14 @@ main .recent-orders table:hover {
     box-shadow: none;
 }
 
+main .recent-orders table tbody{
+    margin-top: 2rem;
+}
+
+main table tbody{
+    margin-top: 2rem;
+}
+
 main table tbody td {
     height: 2.8rem;
     border-bottom: 1px solid var(--color-light);
