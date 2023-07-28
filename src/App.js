@@ -35,13 +35,13 @@ const App = () => {
         <BrowserRouter>
           <Sidebar />
           <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/orders" element={<OrderList />} />
-            <Route path="/tickets" element={<Ticketlist />} />
-            <Route path="/newticket" element={<NewTicket />} />
-            <Route path="/conversation" element={<Conversation />} />
-            <Route path="/invoice" element={<Invoice />} />
-            <Route path="/settings" element={<Passchange />} />
+            <Route path="/userpanel/" element={<Dashboard />} />
+            <Route path="/userpanel/orders" element={<OrderList />} />
+            <Route path="/userpanel/tickets" element={<Ticketlist />} />
+            <Route path="/userpanel/newticket" element={<NewTicket />} />
+            <Route path="/userpanel/conversation" element={<Conversation />} />
+            <Route path="/userpanel/orders/invoice/:id" element={<Invoice />} />
+            <Route path="/userpanel/settings" element={<Passchange />} />
           </Routes>
           <RightSection />
           <Toaster />

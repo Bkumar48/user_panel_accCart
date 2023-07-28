@@ -31,24 +31,24 @@ const Sidebar = () => {
       </div>
 
       <div className="sidebar">
-        <Link to="/" className={location.pathname === "/" ? "active" : ""}>
+        <Link to="/userpanel/" className={location.pathname === "/userpanel/" ? "active" : ""}>
           <span className="material-icons-sharp ">dashboard</span>
           <h3>Dashboard</h3>
         </Link>
-        <Link to="http://localhost:3000/" >
+        <Link to="/demofront/" >
           <span className="material-icons-sharp">language</span>
           <h3>Visit Site</h3>
         </Link>
-        <Link to="/orders" className={location.pathname === '/orders' ? 'active' : location.pathname === '/invoice' ? 'active' : ''}>
+        <Link to="/userpanel/orders" className={location.pathname === '/userpanel/orders' ? 'active' : location.pathname === '/userpanel/orders/invoice' ? 'active' : ''}>
           <span className="material-icons-sharp">paid</span>
           <h3>Orders </h3>
         </Link>
-        <Link to="/tickets" className={location.pathname === '/tickets' ? 'active' : location.pathname === '/newticket' ? 'active' : location.pathname === '/conversation' ? 'active' : ''}>
+        <Link to="/userpanel/tickets" className={location.pathname === '/userpanel/tickets' ? 'active' : location.pathname === '/userpanel/newticket' ? 'active' : location.pathname === '/conversation' ? 'active' : ''}>
           <span className="material-icons-sharp">mail_outline</span>
           <h3>Tickets</h3>
           <span className="message-count">27</span>
         </Link>
-        <Link to="/settings" className={location.pathname === '/settings' ? 'active' : ''}>
+        <Link to="/userpanel/settings" className={location.pathname === '/userpanel/settings' ? 'active' : ''}>
           <span className="material-icons-sharp">settings</span>
           <h3>Settings</h3>
         </Link>

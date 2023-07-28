@@ -1,6 +1,56 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import logo from './assets/sidebar/logo.png'
+import axios from 'axios';
+import Cookies from 'js-cookie';
+import { useParams } from 'react-router-dom';
 const Invoice = () => {
+    const [order, setOrder] = useState([]);
+    const [user, setUser] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const token = Cookies.get('token') || null;
+    const { id } = useParams();
+    //Fetch order data
+    const getOrder = async () => {
+        setLoading(true);
+        try {
+            const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/order/getOrder?orderId=${id}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            setOrder(response.data.data);
+            console.log(response.data.data)
+        } catch (error) {
+            console.log(error.response.data.message);
+            setOrder([]);
+        }
+        setLoading(false);
+    };
+
+    const getUser = async () => {
+        setLoading(true);
+        try {
+            setLoading(true);
+            const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/user/getUser/?userId=${order.userId}`, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            setUser(response.data.data);
+            console.log(response.data.data)
+        } catch (error) {
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        if (token) {
+            getOrder();
+            getUser();
+        }
+    }, [token]);
+
+
     return (
         <main>
             <div className='invoice-header'>
@@ -24,7 +74,7 @@ const Invoice = () => {
                             </td>
                             <td>
                                 <h3>Bill To :</h3>
-                                <h2>John Doe</h2>
+                                <h2>{user.firstName + " " + user.lastName}</h2>
                             </td>
                         </tr>
                         <tr>

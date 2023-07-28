@@ -81,7 +81,7 @@ const OrderList = () => {
                         <td className={order.payment_status === 'Refunded' ? 'danger' : order.payment_status === 'unpaid' ? 'warning' : 'primary'}>{order.payment_status}</td>
                         <td>{convertDateFormat(order.createdAt)}</td>
                         <td className={order.orderstatus === 'Refunded' ? 'danger' : order.orderstatus === 'pending' ? 'warning' : 'primary'}>{order.orderstatus}</td>
-                        <td><Link to='/invoice'>View</Link></td>
+                        <td><Link to={`/userpanel/orders/invoice/${order.orderId}`}>View</Link></td>
                     </tr>
                 ))}
 

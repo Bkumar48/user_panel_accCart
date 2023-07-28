@@ -11,7 +11,7 @@ const RecentOrders = () => {
       // Fetch data again when the token changes
       const getOrders = async() => {
         try {
-            const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/user/order/getAllOrders?limit&skip&orderType=`, {
+            const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/user/order/getAllOrders?limit=3&skip&orderType=`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -83,7 +83,7 @@ const RecentOrders = () => {
 
             </tbody>
             </table>
-            <Link to='/orders'>View All Orders</Link>
+            <Link to='/userpanel/orders'>View All Orders</Link>
         </div>
     )
 }
